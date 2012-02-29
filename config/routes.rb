@@ -1,7 +1,10 @@
-Rails3::Application.routes.draw do
+T::Application.routes.draw do
   resources :microposts
-
   resources :users
+
+  get "static_pages/home"
+  get "static_pages/help"
+  get "static_pages/about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
