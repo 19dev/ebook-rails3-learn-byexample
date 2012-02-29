@@ -20,7 +20,6 @@ describe "User pages" do
   end
 
   describe "signup" do
-
     before { visit signup_path }
 
     describe "with invalid information" do
@@ -35,6 +34,12 @@ describe "User pages" do
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar"
         fill_in "Confirmation", with: "foobar"
+      end
+
+      describe "after saving the user" do
+        before { click_button "Sign up" }
+
+        it { should have_link('Sign out') }
       end
 
       it "should create a user" do
